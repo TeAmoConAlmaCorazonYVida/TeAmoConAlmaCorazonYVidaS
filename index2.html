@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te amo 8.000.000</title>
+    <style>
+        /* Video de fondo */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Contenedores para imágenes en los bordes */
+        .border-container {
+            position: fixed;
+            pointer-events: none;
+            display: flex;
+            gap: 2px;
+        }
+
+        .border-container img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Bordes */
+        .top-border {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .bottom-border {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .left-border {
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .right-border {
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Texto centrado */
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-size: 24px;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin-top: 15%;
+        }
+
+        .contenido {
+            position: relative;
+            text-align: center;
+            font-size: 20px;
+            color: rgb(114, 23, 219);
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video de fondo -->
+    <video autoplay muted loop>
+        <source src="fondo.mp4" type="video/mp4">
+        Tu navegador no soporta el formato de video pipipi :'v
+    </video>
+
+    <!-- Contenido -->
+    <div class="content">My dearest Dayanna...</div>
+    <div class="contenido">
+        <p>I wanna ask you If you could be my valentine, because I know that my heart is yours and your heart is only for me</p>
+        <p>In so many nights I couldn't sleep because I didn't ask you yet to be my valentine.</p>
+        <p>I love you and I want to spend the rest of my life only by your side, I don't care that Im only 17, the only thing Im good is loving you</p>
+        <p>Believe when I say that the best thing I can do is love you, Im not good in other aspects but Im good taking care of you and loving you</p>
+        <font size="5"><p>¿Do you wanna be my Valentine my girl of beautiful cheeks and amazing smile?</p></font></div>
+    <!-- Contenedores de imágenes en los bordes -->
+    <div class="border-container top-border" id="topBorder"></div>
+    <div class="border-container bottom-border" id="bottomBorder"></div>
+    <div class="border-container left-border" id="leftBorder"></div>
+    <div class="border-container right-border" id="rightBorder"></div>
+
+    <script>
+        function fillBorder(containerId, isHorizontal, maxCount) {
+            const container = document.getElementById(containerId);
+            let currentIndex = 1;
+
+            for (let i = 0; i < maxCount; i++) {
+                const img = document.createElement("img");
+                img.src = `image${currentIndex}.jpg`;
+                container.appendChild(img);
+                currentIndex++;
+
+                // Si llegamos a image55.jpg, volvemos a empezar con image1.jpg
+                if (currentIndex > 55) {
+                    currentIndex = 1;
+                }
+            }
+        }
+
+        // Llenar los bordes con imágenes
+        fillBorder("topBorder", true, 23);   // 20 imágenes en el borde superior
+        fillBorder("bottomBorder", true, 23); // 20 imágenes en el borde inferior
+        fillBorder("leftBorder", false, 13);  // 10 imágenes en el borde izquierdo
+        fillBorder("rightBorder", false, 13); // 10 imágenes en el borde derecho
+    </script>
+</body>
+</html>
